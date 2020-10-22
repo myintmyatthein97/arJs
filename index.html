@@ -1,34 +1,29 @@
-<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> to <head>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sample AR</title>
-		<script src="aframe.min.js"></script>
-		<script src="aframe-ar.js"></script>
 
-    </head>
-	<body style="margin : 0px; overflow: hidden; font-family: Monospace;"><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	</div>
-		<a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
-			<a-assets>
-				<img id="sample_image" src="20181138150108gn2wW7370a11a3cc98bb1d667431e030e0cdd.jpg" crossorigin="anonymous">
-    		</a-assets>
-
-			<a-marker preset='custom' type='pattern' url='https://raw.githubusercontent.com/myintmyatthein97/gltf/master/pattern-Untitled-1.patt'>
-
-					<!-- FOR GIFS -->
-					<a-entity rotation="-90 0 0" geometry="primitive:plane" material="shader:gif;src:url(belisariocorre_v01.gif);" gif="" transparent="true"></a-entity>
-			</a-marker>
-
-			<a-entity camera></a-entity>
-		</a-scene>
-	</body>
-
-	<script src="aframe-text-geometry-component.min.js"></script>
-	<script src="aframe-gif-shader.js"></script>
-</html>
+<body style="margin : 0px; overflow: hidden;">
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <a-nft
+      type="nft"
+      url="trex/trex"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+<!--       <a-box position='100 0.5 -180' material='opacity: 0.5; side: double' scale="100 100 100"></a-box> -->
+<!--       <a-box position='100 0.5 -180' material="shader:gif;src:url(https://media.tenor.com/images/412b1aa9149d98d561df62db221e0789/tenor.gif);opacity:1"></a-box> -->
+<!--       <a-box position='100 0.5 -180' scale='100 100 100' material="shader:gif;src:url(Untitled.gif);opacity:1"></a-box> -->
+      <a-entity position='50 0 -180' rotation="-90 0 0" scale='200 200 200' geometry="primitive:plane" material="shader:gif;src:url(Untitled.gif);" gif="" transparent="true"></a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
